@@ -18,7 +18,8 @@ public class Caesar {
 				charCode = (char) charCodeShifted;
 			}
 			encryptedText += charCode;
-		}		
+		}
+		
 		return encryptedText;
 	}
 }
