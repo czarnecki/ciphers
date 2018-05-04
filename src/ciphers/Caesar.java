@@ -19,6 +19,7 @@ public class Caesar {
 			}
 			encryptedText += charCode;
 		}
+		
 		return encryptedText;
 	}
 }
