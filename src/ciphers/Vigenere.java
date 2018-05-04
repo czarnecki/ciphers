@@ -25,7 +25,6 @@ public class Vigenere {
 			}
 			encryptedText += charCode;
 		}
-		
 		return encryptedText;
 	}
 }
