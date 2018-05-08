@@ -8,14 +8,15 @@ public class Vigenere {
 		char charCode;
 		int charCodeShifted;
 		int keypos = 0;
-		text = text.toLowerCase();
+		text = text.toUpperCase();
 		text = text.replaceAll("\\s", "");
+		key = key.toUpperCase();
 		for (int i = 0; i < text.length(); i++) {
 			charCode = text.charAt(i);
-			if (charCode >= 'a' && charCode <= 'z') {
+			if (charCode >= 'A' && charCode <= 'Z') {
 				charCodeShifted = charCode + key.charAt(keypos) - 64;
 				keypos++;
-				if (charCodeShifted > 'z') {
+				if (charCodeShifted > 'Z') {
 					charCodeShifted -= 26;
 				}
 				charCode = (char) charCodeShifted;
@@ -25,7 +26,6 @@ public class Vigenere {
 			}
 			encryptedText += charCode;
 		}
-		
 		return encryptedText;
 	}
 }
