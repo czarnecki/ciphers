@@ -3,8 +3,7 @@ package ciphers;
 public class Caesar {
 	
 	static String encrypt(String text, int key) {
-		
-		String encryptedText = "";
+		String cipherText = "";
 		char charCode;
 		int charCodeShifted;
 		text = text.toUpperCase();
@@ -17,8 +16,25 @@ public class Caesar {
 					charCodeShifted -= 26;
 				charCode = (char) charCodeShifted;
 			}
-			encryptedText += charCode;
+			cipherText += charCode;
 		}
-		return encryptedText;
+		return cipherText;
+	}
+	
+	static String decipher(String cipherText, int key) {
+		String originalText = "";
+		char charCode;
+		int charCodeShifted;
+		for (int i = 0; i < cipherText.length(); i++) {
+			charCode = cipherText.charAt(i);
+			if (charCode >= 'A' && charCode <= 'Z') {
+				charCodeShifted = charCode - key;
+				if (charCodeShifted < 'A')
+					charCodeShifted += 26;
+				charCode = (char) charCodeShifted;
+			}
+			originalText += charCode;
+		}
+		return originalText;
 	}
 }
