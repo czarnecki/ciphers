@@ -6,13 +6,17 @@ public class Caesar {
 		String cipherText = "";
 		char charCode;
 		int charCodeShifted;
-		text = text.toUpperCase();
-		text = text.replaceAll("\\s", "");
 		for (int i = 0; i < text.length(); i++) {
 			charCode = text.charAt(i);
 			if (charCode >= 'A' && charCode <= 'Z') {
 				charCodeShifted = charCode + key;
 				if (charCodeShifted > 'Z')
+					charCodeShifted -= 26;
+				charCode = (char) charCodeShifted;
+			}
+			if (charCode >= 'a' && charCode <= 'z') {
+				charCodeShifted = charCode + key;
+				if (charCodeShifted > 'z')
 					charCodeShifted -= 26;
 				charCode = (char) charCodeShifted;
 			}
@@ -30,6 +34,12 @@ public class Caesar {
 			if (charCode >= 'A' && charCode <= 'Z') {
 				charCodeShifted = charCode - key;
 				if (charCodeShifted < 'A')
+					charCodeShifted += 26;
+				charCode = (char) charCodeShifted;
+			}
+			if (charCode >= 'a' && charCode <= 'z') {
+				charCodeShifted = charCode - key;
+				if (charCodeShifted < 'a')
 					charCodeShifted += 26;
 				charCode = (char) charCodeShifted;
 			}
